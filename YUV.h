@@ -43,7 +43,7 @@ YUV::YUV(char *filename, int width, int height, char *format) {
 	size_ = width_ * height_;
 	if (strcmp(format, "yuv420p") == 0) {
 		format_ = YUV420p;
-		if (file_size_ % (size_ + size_ >> 1) == 0)
+		if (file_size_ % (size_ + size_ / 2) == 0)
 			no_of_frames_ = file_size_ / (size_ * 1.5);
 		else {
 			cerr << endl << "ERROR: The calculated number of frames in " << filename << 
